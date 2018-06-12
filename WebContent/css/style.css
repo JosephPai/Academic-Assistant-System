@@ -295,3 +295,15 @@ h2{font-weight:normal;}
 .seachform li label{padding-right:10px; float:left; line-height:32px;}
 .scinput{width:150px; height:32px; line-height:32px; border-top:solid 1px #a7b5bc; border-left:solid 1px #a7b5bc; border-right:solid 1px #ced9df; border-bottom:solid 1px #ced9df; background:url(../images/inputbg.gif) repeat-x; text-indent:10px;}
 .scbtn{width:85px;height:35px; background:url(../images/btnbg.png) no-repeat center; font-size:14px;font-weight:bold;color:#fff; cursor:pointer;border-radius:3px; behavior:url(js/pie.htc);}
+
+/*详细信息表格*/
+td {border:1px #CCCCCC solid; text-align:center; width:100px; height:30px;line-height:20px; }
+.table_title{align:center;font-size:20px;margin-bottom:5px;}
+.newbtn{margin-left:520px;margin-top:220px;width:60px;height:17.5px; background:url(../images/btnbg.png) no-repeat; font-size:14px;font-weight:bold;color:#fff; cursor:pointer;}
+.btn_bg a:hover{color:	#FF0000;}
+/*.btn_bg{width:137px;height:35px; background:url(../images/btnbg.png) no-repeat;}*/
+.btn_bg li{	list-style-image:none;
+	float:left;
+	width:70px;
+	line-height:27px;
+	margin-right:20px;}

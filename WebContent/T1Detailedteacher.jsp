@@ -30,14 +30,22 @@
     <li><a href="#">查看详细信息</a></li>
     </ul>
     </div>
+    
  <div class="formbody">
     <div class="formtitle"><span>查看详细信息</span></div>
+    
     <ul class="seachform">
     <li>
-    
+      <%
+      String id=request.getParameter("id");
+	  log("本页IdWEI "+id);
+	  if(id.equals("null")) {
+		  out.println("暂无项目！");
+		  return;
+	  }
+    %>
 	  <table border=1>
 	  <%
-      String id=request.getParameter("id");
 	  
 	  //取出项目详细信息
 	  String sqlsta = "select status from textbook where textbook_id = "+id;

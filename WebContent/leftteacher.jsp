@@ -50,12 +50,14 @@ $(function(){
     String teaid = session.getAttribute("account").toString();
     String sql1 = "SELECT textbook_id FROM textbook WHERE first_author_id = \'"+ teaid+"\'";
     ResultSet rs1 = MyBean.executeQuery(sql1);
-    rs1.next();
-    String id1 = rs1.getString(1);
+    String id1 =null;
+    String id2 = null;
+    while(rs1.next()){
+    id1 = rs1.getString(1);}
     String sql2 = "SELECT teachReserch_id FROM teachreserch WHERE first_id = \'"+ teaid+"\'";
     ResultSet rs2 = MyBean.executeQuery(sql2);
-    rs2.next();
-    String id2 = rs1.getString(1);
+    while(rs2.next()){
+    id2 = rs1.getString(1);}
     %>
     <ul class="menuson">
         <li><cite></cite><a href="TApply.jsp" target="rightFrame">填写申请</a><i></i></li>
@@ -67,7 +69,40 @@ $(function(){
     </dd> 
     
     
+    <dd>
+    <div class="title">
+    <span><img src="images/leftico02.png" /></span>毕业设计管理
+    </div>
+    <%
+    String teacher = null;
+    String id4 = null;
+    String sql3 = "SELECT teacher_name FROM teacher WHERE teacher_id = \'"+ teaid+"\'";
+    ResultSet rs3 = MyBean.executeQuery(sql3);
+    while(rs3.next()){
+    teacher = rs3.getString(1);}
+    String sql4 = "SELECT id FROM ggg WHERE teacher = \'"+teacher+"\'";
+    ResultSet rs4 = MyBean.executeQuery(sql4);
+    while(rs4.next()){
+    id4 = rs4.getString(1);}
+    %>
+    <ul class="menuson">
+        <li><cite></cite><a href="GInformationtea.jsp?id=<%=id4%>" target="rightFrame">查看指导学生毕业设计</a><i></i></li>
+
+        
+        </ul>     
     </dd>   
+    <dd>
+    <div class="title">
+    <span><img src="images/leftico02.png" /></span>SRTP项目
+    </div>
+    <%
+    %>
+    <ul class="menuson">
+        <li><cite></cite><a href="SApplytea.jsp" target="rightFrame">发布项目</a><i></i></li>
+
+        
+        </ul>     
+    </dd> 
     
     </dl>
 </body>

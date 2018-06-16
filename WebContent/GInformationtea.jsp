@@ -34,11 +34,11 @@
     <div class="formtitle"><span>查看详细信息</span></div>
     <ul class="seachform">
     <li>
-    <%
+      <%
       String id=request.getParameter("id");
 	  log(id);
 	  if(id.equals("null")) {
-		  out.println("暂无毕设项目，请申请！");
+		  out.println("暂无指导的毕设项目！");
 		  return;
 	  }
       %>
@@ -72,12 +72,22 @@
 	  rs.close();
 	  
 	  %>
- <form action="upload8" method="post" enctype="multipart/form-data">
+<form action="upload10" method="post" enctype="multipart/form-data">
         <tr>
-           <td colspan = '6' align='center' style="font-size:15px" bgcolor=#f0f0f0> <b>任务书</b> </td>   
+           <td colspan = '6' align='center' bgcolor=#f0f0f0> 任务书 </td>   
         </tr>
-    
- </form>
+        <tr>
+            <td colspan = '1'>文件描述:</td>
+            <td colspan = '3'><input type="text" name="desc"/></td>
+            <td colspan = '1'>项目ID:</td>
+            <td colspan = '1'><input type="text" name="id"/></td>
+        </tr>
+        <tr>
+            <td>上传文件:</td>
+            <td colspan = '4'><input type="file" name="file"/></td>
+            <td colspan = '1'><input  type="submit" value="上传文件"/></td>
+        </tr>
+     </form>
      <tr>
      <% 
      String taskfilesql = "SELECT task_file FROM ggg WHERE id ="+id;
@@ -87,9 +97,9 @@
      taskfilers.close();
      %>
      </tr>
-     <form action="upload7" method="post" enctype="multipart/form-data">
+     <form action="upload11" method="post" enctype="multipart/form-data">
         <tr>
-           <td colspan = '6' align='center' style="font-size:15px" bgcolor=#f0f0f0><b>开题报告</b> </td> 
+           <td colspan = '6' align='center' bgcolor=#f0f0f0> 开题报告反馈 </td> 
             
         </tr>
         <tr>
@@ -106,27 +116,28 @@
      </form>
      <tr>
      <% 
-     String startfilesql = "SELECT start_file FROM ggg WHERE id ="+id;
-     ResultSet startfilers = MyBean.executeQuery(startfilesql);
-     if(startfilers.next()){
-     out.println("<td colspan = '6'><a href=DownloadServlet?filename="+startfilers.getString(1)+">"+startfilers.getString(1)+"</a></td>");}
-     startfilers.close();
-     %>
-     </tr>
-     <tr>
-     <td colspan = '2' align='center' bgcolor=#f0f0f0> 开题报告反馈 </td> 
-     <% 
-     
-     String startteasql = "SELECT start_tea FROM ggg WHERE id ="+id;
-     ResultSet startteafilers = MyBean.executeQuery(startteasql);
+     String startteafilesql = "SELECT start_tea FROM ggg WHERE id ="+id;
+     ResultSet startteafilers = MyBean.executeQuery(startteafilesql);
      if(startteafilers.next()){
-     out.println("<td colspan = '4'><a href=DownloadServlet?filename="+startteafilers.getString(1)+">"+startteafilers.getString(1)+"</a></td>");}
+     out.println("<td colspan = '6'><a href=DownloadServlet?filename="+startteafilers.getString(1)+">"+startteafilers.getString(1)+"</a></td>");}
+     startteafilers.close();
+     %>
+     </tr>
+     <tr>
+     <td colspan = '2' align='center' bgcolor=#f0f0f0> 学生开题报告 </td> 
+     <% 
+     
+     String startsql = "SELECT start_file FROM ggg WHERE id ="+id;
+     ResultSet startfilers = MyBean.executeQuery(startsql);
+     if(startfilers.next()){
+     out.println("<td colspan = '4'><a href=DownloadServlet?filename="+startfilers.getString(1)+">"+startfilers.getString(1)+"</a></td>");}
      startfilers.close();
      %>
      </tr>    
-          <form action="upload8" method="post" enctype="multipart/form-data">
+     <form action="upload12" method="post" enctype="multipart/form-data">
         <tr>
-           <td colspan = '6' align='center' style="font-size:15px" bgcolor=#f0f0f0> <b>中期审查</b> </td>   
+           <td colspan = '6' align='center' bgcolor=#f0f0f0> 中期审查反馈 </td> 
+            
         </tr>
         <tr>
             <td colspan = '1'>文件描述:</td>
@@ -139,31 +150,31 @@
             <td colspan = '4'><input type="file" name="file"/></td>
             <td colspan = '1'><input  type="submit" value="上传文件"/></td>
         </tr>
-        
      </form>
      <tr>
      <% 
-     String midfilesql = "SELECT mid_file FROM ggg WHERE id ="+id;
-     ResultSet midfilers = MyBean.executeQuery(midfilesql);
-     if(midfilers.next()){
-     out.println("<td colspan = '6'><a href=DownloadServlet?filename="+midfilers.getString(1)+">"+midfilers.getString(1)+"</a></td>");}
-     midfilers.close();
+     String midteafilesql = "SELECT mid_tea FROM ggg WHERE id ="+id;
+     ResultSet midteafilers = MyBean.executeQuery(midteafilesql);
+     if(midteafilers.next()){
+     out.println("<td colspan = '6'><a href=DownloadServlet?filename="+midteafilers.getString(1)+">"+midteafilers.getString(1)+"</a></td>");}
+     midteafilers.close();
      %>
      </tr>
-    <tr>
-     <td colspan = '2' align='center' bgcolor=#f0f0f0> 中期审查反馈 </td> 
+     <tr>
+     <td colspan = '2' align='center' bgcolor=#f0f0f0> 学生中期报告 </td> 
      <% 
      
-     String midteasql = "SELECT mid_tea FROM ggg WHERE id ="+id;
-     ResultSet midteafilers = MyBean.executeQuery(midteasql);
-     if(midteafilers.next()){
-     out.println("<td colspan = '4'><a href=DownloadServlet?filename="+midteafilers.getString(1)+">"+midteafilers.getString(1)+"</a></td>");}
+     String midsql = "SELECT mid_file FROM ggg WHERE id ="+id;
+     ResultSet midfilers = MyBean.executeQuery(midsql);
+     if(midfilers.next()){
+     out.println("<td colspan = '4'><a href=DownloadServlet?filename="+midfilers.getString(1)+">"+midfilers.getString(1)+"</a></td>");}
      midfilers.close();
      %>
      </tr>    
-<form action="upload9" method="post" enctype="multipart/form-data">
+     <form action="upload13" method="post" enctype="multipart/form-data">
         <tr>
-           <td colspan = '6' align='center' style="font-size:15px" bgcolor=#f0f0f0> <b>最终论文 </b></td>   
+           <td colspan = '6' align='center'  bgcolor=#f0f0f0> <b>最终论文反馈 </b></td> 
+            
         </tr>
         <tr>
             <td colspan = '1'>文件描述:</td>
@@ -179,24 +190,24 @@
      </form>
      <tr>
      <% 
-     String finalfilesql = "SELECT final_file FROM ggg WHERE id ="+id;
-     ResultSet finalfilers = MyBean.executeQuery(finalfilesql);
+     String finalteafilesql = "SELECT final_tea FROM ggg WHERE id ="+id;
+     ResultSet finalteafilers = MyBean.executeQuery(finalteafilesql);
+     if(finalteafilers.next()){
+     out.println("<td colspan = '6'><a href=DownloadServlet?filename="+finalteafilers.getString(1)+">"+finalteafilers.getString(1)+"</a></td>");}
+     finalteafilers.close();
+     %>
+     </tr>
+     <tr>
+     <td colspan = '2' align='center' bgcolor=#f0f0f0> 学生最终论文 </td> 
+     <% 
+     
+     String finalsql = "SELECT final_file FROM ggg WHERE id ="+id;
+     ResultSet finalfilers = MyBean.executeQuery(finalsql);
      if(finalfilers.next()){
-     out.println("<td colspan = '6'><a href=DownloadServlet?filename="+finalfilers.getString(1)+">"+finalfilers.getString(1)+"</a></td>");}
+     out.println("<td colspan = '4'><a href=DownloadServlet?filename="+finalfilers.getString(1)+">"+finalfilers.getString(1)+"</a></td>");}
      finalfilers.close();
      %>
      </tr>
-         <tr>
-     <td colspan = '2' align='center' bgcolor=#f0f0f0> 最终论文反馈 </td> 
-     <% 
-     
-     String finalteasql = "SELECT final_tea FROM ggg WHERE id ="+id;
-     ResultSet finalteafilers = MyBean.executeQuery(finalteasql);
-     if(finalteafilers.next()){
-     out.println("<td colspan = '4'><a href=DownloadServlet?filename="+finalteafilers.getString(1)+">"+finalteafilers.getString(1)+"</a></td>");}
-     finalfilers.close();
-     %>
-     </tr> 
 	  </table>
 	</li>
 	  

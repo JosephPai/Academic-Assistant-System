@@ -44,7 +44,7 @@ public class UploadServlet8 extends HttpServlet{
             String filename=root+"\\"+desc.toString()+str;
             System.out.println("测试产生新的文件名："+filename);
             String srtpid = request.getParameter("id");
-            String sql = "UPDATE ggg SET task_file = '"+desc.toString()+str+"' WHERE id="+srtpid;
+            String sql = "UPDATE ggg SET mid_file = '"+desc.toString()+str+"' WHERE id="+srtpid;
             
             QueryUpdate mysql = new QueryUpdate();
             mysql.executeUpdate(sql);

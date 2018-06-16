@@ -26,11 +26,11 @@
     </div>
     
     <div class="mainindex">
-    
+    <%String teaid = session.getAttribute("account").toString(); %>
     
     <div class="welinfo">
     <span><img src="images/sun.png" alt="天气" /></span>
-    <b>老师您好，欢迎使用教学秘书辅助系统！</b>
+    <b>老师您好，您的工号为<%=teaid %>，欢迎使用教学秘书辅助系统！</b>
     </div>
    
 
@@ -41,15 +41,17 @@
     <b>教学秘书辅助系统使用指南</b>
     </div>
     <%
-    String teaid = session.getAttribute("account").toString();
+    
     String sql1 = "SELECT textbook_id FROM textbook WHERE first_author_id = \'"+ teaid+"\'";
     ResultSet rs1 = MyBean.executeQuery(sql1);
-    rs1.next();
-    String id1 = rs1.getString(1);
+    String id1 =null;
+    String id2 = null;
+    while(rs1.next()){
+    id1 = rs1.getString(1);}
     String sql2 = "SELECT teachReserch_id FROM teachreserch WHERE first_id = \'"+ teaid+"\'";
     ResultSet rs2 = MyBean.executeQuery(sql2);
-    rs2.next();
-    String id2 = rs1.getString(1);
+    while(rs2.next()){
+    id2 = rs1.getString(1);}
     %>
     <ul class="infolist">
     <li><span>您可以进对教研/教材/教改项目进行申请</span><a href="TApply.jsp" class="ibtn">填写申请</a></li>

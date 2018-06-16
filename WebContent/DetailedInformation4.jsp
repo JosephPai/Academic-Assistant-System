@@ -33,12 +33,19 @@
  <div class="formbody">
     <div class="formtitle"><span>查看详细信息</span></div>
     <ul class="seachform">
+    <%
+      String id=request.getParameter("id");
+	  log(id);
+	  if(id.equals("null")) {
+		  out.println("暂无SRTP项目！");
+		  return;
+	  }
+      %>
     <li>
     
 	  <table border=1>
 	  <caption class="table_title">SRTP项目详细信息</caption>
 	  <%
-	  String id=request.getParameter("id");
 	  
 	  //取出项目详细信息
 	  String sql = "SELECT i.id,i.srtp_name,s.name,i.teacher_name,i.level,i.budget,i.background, i.result FROM information AS i INNER JOIN student AS s WHERE i.leader_id = s.id AND i.id ="+id;

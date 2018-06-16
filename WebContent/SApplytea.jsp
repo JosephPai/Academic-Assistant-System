@@ -47,23 +47,14 @@ $(document).ready(function(e) {
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-    <form action="GInsert.jsp" method="post">
+    <form action="SInserttea.jsp" method="post">
     <ul class="forminfo">
-    <li><label>论文题目</label><input name="pro" type="text" class="dfinput" /><i></i></li>
-    <li><label>学生姓名</label><input name="name" type="text" class="dfinput" /><i></i></li>
-    <li><label>学生学号</label><input name="stuid" type="text" class="dfinput" /><i></i></li>
-    <li><label>指导教师姓名</label><input name="teacher" type="text" class="dfinput" /><i></i></li>
-    <li><label>当前学期</label>  
-    <div class="vocation">
-    <select name="semester" class="select2">
-    <option value="2017-2018-01">2017-2018-01</option>
-    <option value="2017-2018-02">2017-2018-02</option>
-    <option value="2018-2019-01">2018-2019-01</option>
-    <option value="2018-2019-02">2018-2019-02</option>
-    </select>
-    </div>
-    </li>
-    <li><label>选题概述</label><textarea name="summary" cols="" rows="" class="textinput"></textarea></li>
+    <li><label>项目名称</label><input name="srtp_name" type="text" class="dfinput" /><i></i></li>
+    <li><label>教师姓名</label><input name="teacher_name" type="text" class="dfinput" /><i></i></li>
+    <li><label>电话</label><input name="teacher_telnum" type="text" class="dfinput" /><i></i></li>
+    <li><label>邮箱</label><input name="teacher_email" type="text" class="dfinput" /><i></i></li>
+    <li><label>要求专业</label><input name="major" type="text" class="dfinput" /><i></i></li>
+    <li><label>项目简介</label><textarea name="introduction" cols="" rows="" class="textinput"></textarea></li>
     
     <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认提交"/></li>
     </ul>

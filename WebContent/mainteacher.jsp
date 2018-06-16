@@ -12,7 +12,7 @@
 <title>本科教学秘书辅助系统</title>
 </head>
 <frameset rows="88,*" cols="*" frameborder="no" border="0" framespacing="0">
-  <frame src="top.html" name="topFrame" scrolling="no" noresize="noresize" id="topFrame" title="topFrame" />
+  <frame src="toptea.jsp" name="topFrame" scrolling="no" noresize="noresize" id="topFrame" title="topFrame" />
   <frameset cols="187,*" frameborder="no" border="0" framespacing="0">
     <frame src="leftteacher.jsp" name="leftFrame" scrolling="no" noresize="noresize" id="leftFrame" title="leftFrame" />
     <frame src="indexteacher.jsp" name="rightFrame" id="rightFrame" title="rightFrame" />

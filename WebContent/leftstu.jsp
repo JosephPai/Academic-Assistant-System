@@ -40,7 +40,26 @@ $(function(){
 	
     
     <dl class="leftmenu">
+    <dd>
+    <div class="title">
+    <span><img src="images/leftico02.png" /></span>SRTP项目
+    </div>
+    <%
+    //下边是SRTP项目ID
+    String stuid = session.getAttribute("account").toString();
+    String sql2 = "SELECT id FROM information WHERE leader_id = \'"+ stuid+"\'";
+    ResultSet rs2 = MyBean.executeQuery(sql2);
+    String id2 = null;
+    while(rs2.next()){
+    id2 = rs2.getString(1);}
+    %>
+    <ul class="menuson">
+        <li><cite></cite><a href="SNewProject.jsp" target="rightFrame">填写申请</a><i></i></li>
+        <li><cite></cite><a href="SList.jsp" target="rightFrame">项目列表</a><i></i></li>
+        <li><cite></cite><a href="DetailedInformation4.jsp?id=<%=id2%>" target="rightFrame">查看项目信息</a><i></i></li>
         
+        </ul>     
+    </dd>         
 
     <dd>
     <div class="title">
@@ -48,11 +67,12 @@ $(function(){
     </div>
     <%
     //下边是毕业设计项目ID
-    String stuid = session.getAttribute("account").toString();
     String sql1 = "SELECT id FROM ggg WHERE stuid = \'"+ stuid+"\'";
     ResultSet rs1 = MyBean.executeQuery(sql1);
-    rs1.next();
-    String id1 = rs1.getString(1);
+    
+    String id1 = null;
+    while(rs1.next()){
+    id1 = rs1.getString(1);}
     %>
     <ul class="menuson">
         <li><cite></cite><a href="GProjectForm.jsp" target="rightFrame">填写申请</a><i></i></li>
@@ -61,8 +81,7 @@ $(function(){
         </ul>     
     </dd> 
     
-    
-    </dd>   
+      
     
     </dl>
 </body>

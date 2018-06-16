@@ -64,29 +64,11 @@ $(document).ready(function(e) {
     
     
     <ul class="seachform">
+    <form action="search.jsp" method="post">
     
     
-    <li><label>学院</label>  
-    <div class="vocation">
-    <select class="select3" name="xueyuan">
-    <option value="01">经管学院</option>
-    <option value="02">计通学院</option>
-    <option value="03">冶金学院</option>
-    </select>
-    </div>
-    </li>
-    
-    <li><label>专业</label>  
-    <div class="vocation" name="zhuanye">
-    <select class="select3" style="width:200px;">
-    <option>计算机</option>
-    <option>法学</option>
-    </select>
-    </div>
-    </li>
-    
-    <li><label>学号</label><input name="" type="text" class="scinput" /></li>
-    
+    <li><label>第一作者工号</label><input name="teaid" type="text" class="scinput" /></li>
+    <li><label>申请日期</label><input name="date" type="date" class="scinput" /></li>
     
     <li><label>&nbsp;</label><input name="" type="submit" class="scbtn" value="查询"/></li>
     
@@ -136,31 +118,12 @@ $(document).ready(function(e) {
     
     <ul class="seachform">
     
-    
-    <li><label>学院</label>  
-    <div class="vocation">
-    <select class="select3" name="xueyuan">
-    <option value="01">经管学院</option>
-    <option value="02">计通学院</option>
-    <option value="03">冶金学院</option>
-    </select>
-    </div>
-    </li>
-    
-    <li><label>专业</label>  
-    <div class="vocation" name="zhuanye">
-    <select class="select3" style="width:200px;">
-    <option>计算机</option>
-    <option>法学</option>
-    </select>
-    </div>
-    </li>
-    
-    <li><label>学号</label><input name="" type="text" class="scinput" /></li>
-    
+    <form action="search.jsp" method="post">
+    <li><label>第一作者工号</label><input name="teaid" type="text" class="scinput" /></li>
+    <li><label>申请时间</label><input name="teaid" type="date" class="scinput" /></li>
     
     <li><label>&nbsp;</label><input name="" type="submit" class="scbtn" value="查询"/></li>
-    
+    </form>
     </ul>
     
     

@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import com.mysql.jdbc.DatabaseMetaData;
-@WebServlet("/upload10")
+@WebServlet("/upload11")
 @MultipartConfig
-public class UploadServlet10 extends HttpServlet{
+public class UploadServlet11 extends HttpServlet{
 
     
     private static final long serialVersionUID = 1L;
@@ -44,7 +44,7 @@ public class UploadServlet10 extends HttpServlet{
             String filename=root+"\\"+desc.toString()+str;
             System.out.println("测试产生新的文件名："+filename);
             String srtpid = request.getParameter("id");
-            String sql = "UPDATE ggg SET task_file = '"+desc.toString()+str+"' WHERE id="+srtpid;
+            String sql = "UPDATE ggg SET start_tea = '"+desc.toString()+str+"' WHERE id="+srtpid;
             
             QueryUpdate mysql = new QueryUpdate();
             mysql.executeUpdate(sql);

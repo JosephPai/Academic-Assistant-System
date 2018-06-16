@@ -57,7 +57,7 @@ $(document).ready(function(e) {
     
     <div class="itab">
   	<ul> 
-  	<li><a href="#tab1" class="selected">毕业设计项目</a></li> 
+  	<li><a href="#tab1" class="selected">SRTP项目</a></li> 
 
   	</ul>
     </div> 
@@ -71,30 +71,30 @@ $(document).ready(function(e) {
     <table class="tablelist">
     	<thead>
     	<tr>
-        <th>ID<i class="sort"><img src="images/px.gif" /></i></th>
-        <th>毕业设计选题名称</th>
-        <th>学生姓名</th>
-        <th>指导教师</th>
-        <th>操作</th>
+        <th>项目名称<i class="sort"><img src="images/px.gif" /></i></th>
+        <th>指导教师姓名</th>
+        <th>指导教师联系方式</th>
+        <th>指导教师邮箱</th>
+        <th>备注</th>
         </tr>
         </thead>
         <tbody>
         <%
         String semester = request.getParameter("semester");
         log(semester);
-        //查看所有待立项的项目并输出
-        String sql = "SELECT g.id,g.pro,s.name,g.teacher FROM ggg AS g INNER JOIN student AS s WHERE g.stuid = s.id AND g.semester = "+"\'"+semester+"\'";
+        //查看所有教师发布的项目并输出
+        String sql = "SELECT srtp_name,teacher_name,teacher_telnum,teacher_email,id FROM srtp_tea";
         ResultSet rs = MyBean.executeQuery(sql);
         log(sql);
         while(rs.next()){
         	out.println("<tr>");
         	out.println("<td>"+rs.getString(1)+"</td>");//编号
-        	String srtpid = rs.getString(1);
+        	String srtpid = rs.getString(5);
         	//log("srtpid为："+srtpid);
         	out.println("<td>"+rs.getString(2)+"</td>");//课题名称
         	out.println("<td>"+rs.getString(3)+"</td>");//学生姓名
         	out.println("<td>"+rs.getString(4)+"</td>");//指导教师姓名
-        	StringBuffer sss = new StringBuffer("<td>"+"<a href=\"GInformation.jsp?id=");
+        	StringBuffer sss = new StringBuffer("<td>"+"<a href=\"SProjecttea.jsp?id=");
         	sss.append(srtpid);
         	sss.append("\" class=\"tablelink\" > 查看详细信息</a></td>");
         	out.println(sss);

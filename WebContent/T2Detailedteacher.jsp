@@ -29,9 +29,23 @@
     <li><a href="#">待立项审批项目</a></li>
     <li><a href="#">查看详细信息</a></li>
     </ul>
+    
     </div>
+    
+ <div class="formbody">
+    <div class="formtitle"><span>查看详细信息</span></div>
+    <ul class="seachform">
+    <li>
+    <%
+      String id=request.getParameter("id");
+	  log(id);
+	  if(id.equals("null")) {
+		  out.println("暂无项目！");
+		  return;
+	  }
+      %>
  	  <%
-	  String id=request.getParameter("id");
+
 	  String sqlsta = "select status from teachreserch where teachReserch_id = "+id;
 	  ResultSet rssta = MyBean.executeQuery(sqlsta);
 	  rssta.next();
@@ -42,11 +56,6 @@
 	  else if(status.equals("2")) sta = "待最终审批";
 	  else if(status.equals("3")) sta = "已结项";
 	  %>
- <div class="formbody">
-    <div class="formtitle"><span>查看详细信息</span></div>
-    <ul class="seachform">
-    <li>
-    
 	  <table border=1>
 	  <caption class="table_title">教研/教改详细信息(<%=sta %>)</caption>
 

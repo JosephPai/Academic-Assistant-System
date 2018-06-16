@@ -57,7 +57,7 @@
     </tr>
     <td style="border-style:none;">&nbsp</td>
     <tr>
-    <td style="border-style:none;"><b>请选择您的身份：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b><input type="radio" name="role" value="教学秘书"/>教学秘书&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <td style="border-style:none;"><b>请选择您的身份：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b><input type="radio" name="role" value="教学秘书" checked="checked" />教学秘书&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <input type="radio" name="role" value="教师"/>教师&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <input type="radio" name="role" value="学生"/>学生
     <tr>

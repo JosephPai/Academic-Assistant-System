@@ -28,7 +28,7 @@
     String member_id1 = request.getParameter("member_id1");
     String member_id2 = request.getParameter("member_id2");    
     String newsql = "INSERT INTO `information` (srtp_name, leader_id, teacher_name, publish_time, level, background, result, budget, member_id1, member_id2) VALUES (\'"+srtp_name+"\', \'"+leader_id+"\', \'"+teacher_name+"\', \'"+ publish_time+"\', \'"+ level+"\', \'"+ background+"\', \'"+ result+"\', \'"+ budget+"\', \'"+ member_id1+"\', \'"+ member_id2+"')";
-    out.println(newsql);
+    out.println("申请成功！");
     MyBean.executeUpdate(newsql);
   %>
 </body>

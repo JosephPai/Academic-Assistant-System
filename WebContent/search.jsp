@@ -63,8 +63,25 @@ $(document).ready(function(e) {
   	<div id="tab1" class="tabson">
     
     
+    <ul class="seachform">
+    <form action="search.jsp" method="post">
     
     
+    <li><label>第一作者工号</label><input name="teaid" type="text" class="scinput" /></li>
+    <li><label>申请日期</label><input name="date" type="date" class="scinput" /></li>
+    
+    <li><label>&nbsp;</label><input name="" type="submit" class="scbtn" value="查询"/></li>
+    
+    </ul>
+    <%
+      String tea_id = request.getParameter("teaid");
+      String apply_date = request.getParameter("date");
+      String sql = null;
+      if(apply_date.equals("")) {sql = "select textbook_id,textbook_name,first_author_id,apply_time from textbook WHERE status = 3 AND first_author_id = \'"+tea_id+"\'";}
+      else if(tea_id.equals("")) {sql = "select textbook_id,textbook_name,first_author_id,apply_time from textbook WHERE status = 3 AND apply_time = \'"+apply_date+"\'";}
+      else {sql = "select textbook_id,textbook_name,first_author_id,apply_time from textbook WHERE status = 3 AND apply_time = \'"+apply_date+"\' AND first_author_id = \'"+tea_id+"\'";}
+      log(sql);
+    %>
     
     <table class="tablelist">
     	<thead>
@@ -79,7 +96,6 @@ $(document).ready(function(e) {
         <tbody>
         <%
         //查看所有待立项的项目并输出
-        String sql = "select textbook_id,textbook_name,first_author_id,apply_time from textbook WHERE status = 0";
         ResultSet rs = MyBean.executeQuery(sql);
         while(rs.next()){
         	out.println("<tr>");
@@ -89,7 +105,7 @@ $(document).ready(function(e) {
         	out.println("<td>"+rs.getString(2)+"</td>");//教材名称
         	out.println("<td>"+rs.getString(3)+"</td>");//学生姓名
         	out.println("<td>"+rs.getString(4)+"</td>");//指导教师姓名
-        	StringBuffer sss = new StringBuffer("<td>"+"<a href=\"T1Detailed.jsp?id=");
+        	StringBuffer sss = new StringBuffer("<td>"+"<a href=\"T1Detailed4.jsp?id=");
         	sss.append(srtpid);
         	sss.append("\" class=\"tablelink\" > 查看详细信息</a></td>");
         	out.println(sss);
@@ -107,13 +123,42 @@ $(document).ready(function(e) {
   <div id="tab2" class="tabson">
     
     
+    <ul class="seachform">
+    
+    
+    <li><label>学院</label>  
+    <div class="vocation">
+    <select class="select3" name="xueyuan">
+    <option value="01">经管学院</option>
+    <option value="02">计通学院</option>
+    <option value="03">冶金学院</option>
+    </select>
+    </div>
+    </li>
+    
+    <li><label>专业</label>  
+    <div class="vocation" name="zhuanye">
+    <select class="select3" style="width:200px;">
+    <option>计算机</option>
+    <option>法学</option>
+    </select>
+    </div>
+    </li>
+    
+    <li><label>学号</label><input name="" type="text" class="scinput" /></li>
+    
+    
+    <li><label>&nbsp;</label><input name="" type="submit" class="scbtn" value="查询"/></li>
+    
+    </ul>
+    
     
     <table class="tablelist">
     	<thead>
     	<tr>
         <th>编号<i class="sort"><img src="images/px.gif" /></i></th>
-        <th>项目名称</th>
-        <th>负责人工号</th>
+        <th>教材名称</th>
+        <th>第一作者工号</th>
         <th>申请时间</th>
         <th>操作</th>
         </tr>
@@ -121,18 +166,18 @@ $(document).ready(function(e) {
         <tbody>
       <%
         //查看所有待立项的项目并输出
-        String sql2 = "select teachReserch_id,teachReserch_name,first_id,apply_time from teachReserch where status = 0";
+        String sql2 = "select teachReserch_id,teachReserch_name,first_id,apply_time from teachReserch where status = 3";
         ResultSet rs2 = MyBean.executeQuery(sql2);
         while(rs2.next()){
         	out.println("<tr>");
         	out.println("<td>"+rs2.getString(1)+"</td>");//编号
-        	String srtpid1 = rs2.getString(1);
+        	String srtpid = rs2.getString(1);
         	//log("srtpid为："+srtpid);
         	out.println("<td>"+rs2.getString(2)+"</td>");//教材名称
         	out.println("<td>"+rs2.getString(3)+"</td>");//学生姓名
         	out.println("<td>"+rs2.getString(4)+"</td>");//指导教师姓名
-        	StringBuffer sss = new StringBuffer("<td>"+"<a href=\"T2Detailed.jsp?id=");
-        	sss.append(srtpid1);
+        	StringBuffer sss = new StringBuffer("<td>"+"<a href=\"T2Detailed4.jsp?id=");
+        	sss.append(srtpid);
         	sss.append("\" class=\"tablelink\" > 查看详细信息</a></td>");
         	out.println(sss);
         	out.println("</tr>");

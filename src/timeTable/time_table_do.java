@@ -13,7 +13,7 @@ import sun.util.logging.resources.logging;
 public class time_table_do {
 	private static Connection getConn() {
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost/srtp?user=root&password=8288545&useUnicode=true&characterEncoding=utf8&useSSL=true";
+		String url = "jdbc:mysql://localhost/srtp?user=root&password=06104777&useUnicode=true&characterEncoding=utf8&useSSL=true";
 		Connection conn = null;
 	    try {
 	        Class.forName(driver); //classLoader,加载对应驱动

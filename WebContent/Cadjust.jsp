@@ -46,25 +46,25 @@ $(document).ready(function(e) {
     
     <div class="formbody">
     
-    <div class="formtitle"><span>北京科技大学本科课程认领表</span></div>
-    <form action="CInsertCourse.jsp" method="post" >
+    <div class="formtitle"><span>待调整课程列表</span></div>
+    <form action="Cadjusting.jsp" method="post" >
     <ul class="forminfo">
-    <li><label>课程名称</label><input name="course_name" type="text" class="dfinput" /><i></i></li>
-    <li><label>教师姓名</label><input name="teacher_name" type="text" class="dfinput" /><i></i></li>
-    <li><label>学分数</label><input name="freq" type="text" class="dfinput" /><i></i></li>
-    <li><label>期望上课日期</label>
-       <input TYPE="checkbox" name="day1" VALUE="1" class="dfinput1"/> 周一
-       <input TYPE="checkbox" name="day2" VALUE="1" class="dfinput1"/> 周二
-       <input TYPE="checkbox" name="day3" VALUE="1" class="dfinput1"/> 周三
-       <input TYPE="checkbox" name="day4" VALUE="1" class="dfinput1"/> 周四
-       <input TYPE="checkbox" name="day5" VALUE="1" class="dfinput1"/> 周五</li>
-    <li><label>期望上课时间</label>
-       <div style="margin:auto;">
-       <input TYPE="checkbox" name="c1" VALUE="1" class="dfinput1"/> 第一节 8:00-9:35
-       <input TYPE="checkbox" name="c2" VALUE="1" class="dfinput1"/> 第二节 9:50-11:30
-       <input TYPE="checkbox" name="c3" VALUE="1" class="dfinput1"/> 第三节 13:30-15:05
-       <input TYPE="checkbox" name="c4" VALUE="1" class="dfinput1"/> 第四节 15:20-16:55
-       <input TYPE="checkbox" name="c5" VALUE="1" class="dfinput1"/> 第五节 17:10-18:45</div></li>
+    <%
+    request.setCharacterEncoding("utf-8");
+    
+    String course = request.getParameter("course");
+    out.println("<li>您正在调整的课程为：<b style=\"font-size:20px;\">"+course+"</b></li><br>");
+    String[] CourseArray = course.split("\\s+");
+    String[] name = CourseArray[0].split("：");
+    String realname = name[1];
+    session.setAttribute("realname",realname);
+    String[] course2 = CourseArray[1].split("：");
+    String realcourse = course2[1];
+    session.setAttribute("realcourse",realcourse);
+    String[] type = CourseArray[2].split("：");
+    String realtype = type[1];
+    session.setAttribute("realtype",realtype);
+    %>
      <li><label>上课地点</label>
      <div class="vocation">
     <select name="building" class="select2">
@@ -75,19 +75,32 @@ $(document).ready(function(e) {
    </div>
    </li>
    
-    <li><label>课程类型</label> 
+    <li><label>上课日期</label> 
     <div class="vocation">
-    <select name="classes" class="select2">
-      <option value="必修">必修</option>
-      <option value="公选">公选</option>
-      <option value="专选">专选</option>
-      <option value="实验">实验</option>
+    <select name="day" class="select2">
+      <option value="1">星期一</option>
+      <option value="2">星期二</option>
+      <option value="3">星期三</option>
+      <option value="4">星期四</option>
+      <option value="5">星期五</option>
+    </select>
+    </div>
+    </li>
+    
+    <li><label>上课时间</label> 
+    <div class="vocation">
+    <select name="time" class="select2">
+      <option value="1">第一节</option>
+      <option value="2">第二节</option>
+      <option value="3">第三节</option>
+      <option value="4">第四节</option>
+      <option value="5">第五节</option>
     </select>
     </div>
     </li>
     
     
-    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认认领"/></li>
+    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="调整课程"/></li>
     </ul>
     </form>
     

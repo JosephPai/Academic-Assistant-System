@@ -173,7 +173,7 @@
      </tr>    
      <form action="upload13" method="post" enctype="multipart/form-data">
         <tr>
-           <td colspan = '6' align='center'  bgcolor=#f0f0f0> <b>最终论文反馈 </b></td> 
+           <td colspan = '6' align='center'  bgcolor=#f0f0f0>最终论文反馈 </td> 
             
         </tr>
         <tr>

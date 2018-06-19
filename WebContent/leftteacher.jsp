@@ -40,7 +40,14 @@ $(function(){
 	
     
     <dl class="leftmenu">
-        
+    <dd>
+    <div class="title">
+    <span><img src="images/leftico02.png" /></span>教学课程
+    </div>
+    <ul class="menuson">
+        <li><cite></cite><a href="Ccourse.jsp" target="rightFrame">认领课程</a><i></i></li>       
+        </ul>     
+    </dd>     
 
     <dd>
     <div class="title">
@@ -57,7 +64,7 @@ $(function(){
     String sql2 = "SELECT teachReserch_id FROM teachreserch WHERE first_id = \'"+ teaid+"\'";
     ResultSet rs2 = MyBean.executeQuery(sql2);
     while(rs2.next()){
-    id2 = rs1.getString(1);}
+    id2 = rs2.getString(1);}
     %>
     <ul class="menuson">
         <li><cite></cite><a href="TApply.jsp" target="rightFrame">填写申请</a><i></i></li>
@@ -84,6 +91,10 @@ $(function(){
     ResultSet rs4 = MyBean.executeQuery(sql4);
     while(rs4.next()){
     id4 = rs4.getString(1);}
+    rs1.close();
+    rs2.close();
+    rs3.close();
+    rs4.close();
     %>
     <ul class="menuson">
         <li><cite></cite><a href="GInformationtea.jsp?id=<%=id4%>" target="rightFrame">查看指导学生毕业设计</a><i></i></li>

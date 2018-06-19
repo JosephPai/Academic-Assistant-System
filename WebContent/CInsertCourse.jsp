@@ -14,7 +14,6 @@
   <%
     request.setCharacterEncoding("utf-8");
     
-    String course_id = request.getParameter("course_id");
     String course_name = request.getParameter("course_name");
     String teacher_name = request.getParameter("teacher_name");
     String frequency = request.getParameter("freq");
@@ -31,10 +30,13 @@
     String building = request.getParameter("building");
     String classes = request.getParameter("classes");
      
-    String newsql = "INSERT INTO `time_table` (course_id, course_name, teacher_name, frequency, building, classes, section1, section2, section3, section4, section5, Monday, Tuesday, Wednesday, Thurday, Friday) VALUES (\'"
-    	+course_id+ "\', \'" +course_name+ "\', \'" +teacher_name+ "\', \'"+ frequency+ "\', \'" +building+ "\', \'" + classes+ "\', \'" + sec1+"\', \'"+ sec2+"\', \'"+ sec3+"\', \'"+ sec4+"\', \'"+sec5+"\', \'"+Monday+ "\', \'"+ Tuesday+"\', \'"+Wednesday+"\', \'"+Thurday+"\', \'"+Friday+"')";
-    out.println("课程认领成功！");
+    String newsql = "INSERT INTO `time_table` ( course_name, teacher_name, frequency, building, classes, section1, section2, section3, section4, section5, Monday, Tuesday, Wednesday, Thurday, Friday) VALUES (\'"
+    	+course_name+ "\', \'" +teacher_name+ "\', \'"+ frequency+ "\', \'" +building+ "\', \'" + classes+ "\', \'" + sec1+"\', \'"+ sec2+"\', \'"+ sec3+"\', \'"+ sec4+"\', \'"+sec5+"\', \'"+Monday+ "\', \'"+ Tuesday+"\', \'"+Wednesday+"\', \'"+Thurday+"\', \'"+Friday+"')";
     MyBean.executeUpdate(newsql);
   %>
+<script type="text/javascript" language="javascript">
+alert("认领课程成功！");
+window.document.location.href="Ccourse.jsp";
+</script>
 </body>
 </html>

@@ -11,12 +11,16 @@
     String teaid = session.getAttribute("account").toString();
     String sql1 = "SELECT textbook_id FROM textbook WHERE first_author_id = \'"+ teaid+"\'";
     ResultSet rs1 = MyBean.executeQuery(sql1);
-    rs1.next();
-    String id1 = rs1.getString(1);
+    String id1 =null;
+    String id2 = null;
+    while(rs1.next()){
+    	id1 = rs1.getString(1);
+    }
+    
     String sql2 = "SELECT teachReserch_id FROM teachreserch WHERE first_id = \'"+ teaid+"\'";
     ResultSet rs2 = MyBean.executeQuery(sql2);
-    rs2.next();
-    String id2 = rs1.getString(1);
+    while(rs2.next()){
+    id2 = rs2.getString(1);}
     String office_supply = request.getParameter("office_supply");
     String data_fee = request.getParameter("data_fee");
     String travel_expenses = request.getParameter("travel_expenses");

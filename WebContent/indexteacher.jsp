@@ -51,16 +51,30 @@
     String sql2 = "SELECT teachReserch_id FROM teachreserch WHERE first_id = \'"+ teaid+"\'";
     ResultSet rs2 = MyBean.executeQuery(sql2);
     while(rs2.next()){
-    id2 = rs1.getString(1);}
+    id2 = rs2.getString(1);}
     %>
     <ul class="infolist">
     <li><span>您可以进对教研/教材/教改项目进行申请</span><a href="TApply.jsp" class="ibtn">填写申请</a></li>
     <li><span>您查看您的教研/教改项目进度</span><a href="T2Detailedteacher.jsp?id=<%=id2%>" class="ibtn">查看进度</a></li>
     <li><span>您查看您的教材项目进度</span><a href="T1Detailedteacher.jsp?id=<%=id1%>" class="ibtn">查看进度</a></li>
+    <% 
+    String teacher = null;
+    String id4 = null;
+    String sql3 = "SELECT teacher_name FROM teacher WHERE teacher_id = \'"+ teaid+"\'";
+    ResultSet rs3 = MyBean.executeQuery(sql3);
+    while(rs3.next()){
+    teacher = rs3.getString(1);}
+    String sql4 = "SELECT id FROM ggg WHERE teacher = \'"+teacher+"\'";
+    ResultSet rs4 = MyBean.executeQuery(sql4);
+    while(rs4.next()){
+    id4 = rs4.getString(1);}
+    rs1.close();
+    rs2.close();
+    rs3.close();
+    rs4.close();%>
+    <li><span>您可以发布您的SRTP项目</span><a href="SApplytea.jsp" class="ibtn">填写申请</a></li>
+    <li><span>您查看您指导学生的毕业设计</span><a href="GInformationtea.jsp?id=<%=id4%>" class="ibtn">查看进度</a></li>
     </ul>
-    
-    <div class="xline"></div>
-    
 
 </body>
 </html>

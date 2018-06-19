@@ -10,10 +10,64 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2018-06-12 15:20:05
+Date: 2018-06-18 10:24:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `course_table`
+-- ----------------------------
+DROP TABLE IF EXISTS `course_table`;
+CREATE TABLE `course_table` (
+  `name` char(50) NOT NULL,
+  `1_1` char(50) DEFAULT NULL,
+  `1_2` char(50) DEFAULT NULL,
+  `1_3` char(50) DEFAULT NULL,
+  `1_4` char(50) DEFAULT NULL,
+  `1_5` char(50) DEFAULT NULL,
+  `2_1` char(50) DEFAULT NULL,
+  `2_2` char(50) DEFAULT NULL,
+  `2_3` char(50) DEFAULT NULL,
+  `2_4` char(50) DEFAULT NULL,
+  `2_5` char(50) DEFAULT NULL,
+  `3_1` char(50) DEFAULT NULL,
+  `3_2` char(50) DEFAULT NULL,
+  `3_3` char(50) DEFAULT NULL,
+  `3_4` char(50) DEFAULT NULL,
+  `3_5` char(50) DEFAULT NULL,
+  `4_1` char(50) DEFAULT NULL,
+  `4_2` char(50) DEFAULT NULL,
+  `4_3` char(50) DEFAULT NULL,
+  `4_4` char(50) DEFAULT NULL,
+  `4_5` char(50) DEFAULT NULL,
+  `5_1` char(50) DEFAULT NULL,
+  `5_2` char(50) DEFAULT NULL,
+  `5_3` char(50) DEFAULT NULL,
+  `5_4` char(50) DEFAULT NULL,
+  `5_5` char(50) DEFAULT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of course_table
+-- ----------------------------
+INSERT INTO `course_table` VALUES ('admin', 'null', 'null', '陈媛 信号与系统 教学楼 公选', '班晓娟 编译原理 机电楼 必修', 'null', 'null', '王昭顺 计算机体系结构 机电楼 必修', '朱超 模式识别 机电楼 专选', 'null', '朱超 模式识别 机电楼 专选', '班晓娟 编译原理 逸夫楼 必修', '孙昌爱 软件工程 逸夫楼 必修', '何杰 嵌入式 机电楼 专选', '何杰 嵌入式 机电楼 专选', 'null', 'null', 'null', '储继迅 工科数学分析 逸夫楼 必修', '孙昌爱 软件工程 逸夫楼 必修', '王昭顺 计算机体系结构 机电楼 必修', 'null', '王成耀 数据结构 机电楼 实验', 'null', '孙昌爱 软件工程 逸夫楼 必修', 'null');
+
+-- ----------------------------
+-- Table structure for `fail_course`
+-- ----------------------------
+DROP TABLE IF EXISTS `fail_course`;
+CREATE TABLE `fail_course` (
+  `course` char(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of fail_course
+-- ----------------------------
+INSERT INTO `fail_course` VALUES ('教师：何杰  课程：嵌入式  类别：专选');
+INSERT INTO `fail_course` VALUES ('教师：王睿  课程：人工智能  类别：专选');
+INSERT INTO `fail_course` VALUES ('教师：王睿  课程：人工智能  类别：专选');
 
 -- ----------------------------
 -- Table structure for `funds`
@@ -58,15 +112,15 @@ CREATE TABLE `ggg` (
   `mid_tea` longtext,
   `final_tea` longtext,
   PRIMARY KEY (`id`,`stuid`)
-) ENGINE=InnoDB AUTO_INCREMENT=201806031107 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=201806031110 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ggg
 -- ----------------------------
-INSERT INTO `ggg` VALUES ('2', '41504677', '班晓娟', '选题名称', '概述', '导师传任务书', '2018-06-14', null, null, '2017-2018-01', '0', null, null, null, null);
-INSERT INTO `ggg` VALUES ('3', '41504676', '何啸', '基于深度学习的机器翻译', '训练一个基于深度学习的机器翻译模型，实现中英双语互译', 'cc.ustb.edu.cn', null, null, null, '2017-2018-02', '0', null, null, null, null);
 INSERT INTO `ggg` VALUES ('201806031103', '41504679', '张欣欣', '设计一款本科教学秘书辅助系统', '项目研究将直接指导国防科技创新实践与人才培养，提高人才培养质量，并为导师指导研究生从事国防科技创新，为校园文化培育与人才培养改革提供参考；为高校人才培养提供政策建议，以期为高层次国防科技人才培养提供有效支撑和借鉴，如，将有关工程硕士的培养向工程博士层次扩展等。', null, null, null, null, '2017-2018-02', '0', '刘志的开题报告.docx', '开题报告反馈', '中期审查反馈', '最终论文反馈');
 INSERT INTO `ggg` VALUES ('201806031105', '41524157', '殷绪成', '防火墙技术中的计算机安全构建应用', '由于信息技术的不断发展，技术机网络被广泛地应用，并使人类的生产生活发生了重大变革，网络安全问题跟随着计算机网络广泛应用出现，使用防火墙是提高计算机网络安全的有效方法。该文将对防火墙的概念以及功能进行分析，并研究计算机安全构建中防火墙的应用。', '任务书.docx', null, '中期审批.docx', '最终论文.docx', '2017-2018-01', '0', '开题报告.docx', '开题报告反馈意见.docx', '中期审批反馈.docx', '最终论文反馈意见.docx');
+INSERT INTO `ggg` VALUES ('201806031108', '41524157', '殷绪成', '数据库冗余计算', '数据库冗余计算', '任务书.docx', null, '中期审批.docx', '最终论文.docx', '2017-2018-01', '0', '开题报告.docx', '开题报告反馈意见.docx', '中期审批反馈.docx', '最终论文反馈.docx');
+INSERT INTO `ggg` VALUES ('201806031109', '41504675', '殷绪成', '论红楼梦对当代文学的的影响', '论红楼梦对当代文学的影响', null, null, null, null, '2017-2018-01', '0', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `information`
@@ -77,7 +131,7 @@ CREATE TABLE `information` (
   `srtp_name` char(20) NOT NULL,
   `leader_id` char(8) NOT NULL,
   `teacher_name` char(6) NOT NULL,
-  `publish_time` char(6) NOT NULL,
+  `publish_time` char(20) NOT NULL,
   `level` char(6) DEFAULT NULL,
   `background` text,
   `result` text,
@@ -88,26 +142,28 @@ CREATE TABLE `information` (
   `mid_file` text,
   `final_file` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of information
 -- ----------------------------
-INSERT INTO `information` VALUES ('1', '深度学习', '41504675', '殷绪成', '18-02', '校级', '深度学习的概念源于人工神经网络的研究。含多隐层的多层感知器就是一种深度学习结构。', '深度学习通过组合低层特征形成更加抽象的高层表示属性类别或特征', '3000', '41504676', '41504677', '0', '三国历史中期审查.pdf', '这会肯定对了！.docx');
-INSERT INTO `information` VALUES ('2', '模式识别', '41504676', '殷绪成', '18-03', '院级', '模式识别（英语：Pattern Recognition），就是通过计算机用数学技术方法来研究模式的自动处理和判读。', '模式识别作为人工智能的一个重要应用领域也得到了飞速发展。模式识别就是用计算机通过计算的方法根据样本的特征对样本进行分类。', '2000', '41504677', '41504678', '1', null, null);
-INSERT INTO `information` VALUES ('3', '人工智能', '41504677', '殷绪成', '18-04', '市级', '人工智能（Artificial Intelligence），英文缩写为AI。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。', '人工智能实验室(AiLab)是人工智能领域的网上资讯门户,本站汇集了各类人工智能学科知识和学习资料,是各位人工智能爱好者学习和交流不可或缺的平台', '4000', '41504678', '41504679', '1', null, null);
-INSERT INTO `information` VALUES ('4', '计算机网络', '41504678', '殷绪成', '18-04', '校级', '人工智能（Artificial Intelligence），英文缩写为AI。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。', '人工智能实验室(AiLab)是人工智能领域的网上资讯门户,本站汇集了各类人工智能学科知识和学习资料,是各位人工智能爱好者学习和交流不可或缺的平台', '3000', '41504675', '41504676', '1', null, null);
-INSERT INTO `information` VALUES ('5', '软件工程', '41504679', '啦啦啦啦', '18-02', '国家级', '人工智能（Artificial Intelligence），英文缩写为AI。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。', '人工智能实验室(AiLab)是人工智能领域的网上资讯门户,本站汇集了各类人工智能学科知识和学习资料,是各位人工智能爱好者学习和交流不可或缺的平台', '5000', '41504676', '41504677', '0', null, null);
-INSERT INTO `information` VALUES ('6', '计算机体系结构', '41504677', '刘备', '18-06', '国家级', '真没什么背景', '能有啥成果', '10000', '41504675', '41504676', '1', null, null);
-INSERT INTO `information` VALUES ('7', '编译原理', '41504679', '张飞', '18-07', '校级', '张飞能有啥背景', '我也想要成果呀', '5000', '41504675', '41504678', '1', null, null);
-INSERT INTO `information` VALUES ('8', '数据结构', '41504678', '关羽', '18-03', '市级', '我真的编不出来背景了...', '好了无所谓了', '100', '41504675', '41504676', '1', null, null);
-INSERT INTO `information` VALUES ('9', '数据结构', '41504678', '关羽', '18-03', '市级', '我真的编不出来背景了...', '好了无所谓了', '100', '41504675', '41504676', '1', null, null);
-INSERT INTO `information` VALUES ('10', '数值计算方法', '41504679', '张飞', '18-07', '校级', '张飞能有啥背景', '我也想要成果呀', '5000', '41504675', '41504678', '1', null, null);
-INSERT INTO `information` VALUES ('11', '通信原理概论', '41504679', '张飞', '18-07', '校级', '张飞能有啥背景', '我也想要成果呀', '5000', '41504675', '41504678', '1', null, null);
-INSERT INTO `information` VALUES ('12', '三国历史', '41504675', '曹操', '18-12', '国家级', '123', '123', '3000', '41504678', '41504679', '2', '三国历史中期审查.pdf', null);
-INSERT INTO `information` VALUES ('13', '三国历史', '41504675', '孙权', '18-12', '国家级', '123', '123', '3000', '41504678', '41504679', '3', null, null);
-INSERT INTO `information` VALUES ('17', '刘备的一生', '41504675', '刘备', '18-12', '国家级', '刘备少年时拜卢植为师；早年颠沛流离，备尝艰辛，投靠过多个诸侯，曾参与镇压黄巾起义。先后率军救援北海相孔融、徐州牧陶谦等。陶谦病亡后，将徐州让与刘备。赤壁之战时，刘备与孙权联盟击败曹操，趁势夺取荆州。而后进取益州。于章武元年（221年）在成都称帝，国号汉，史称蜀或蜀汉。《三国志》评刘备的机权干略不及曹操，但其弘毅宽厚，知人待士，百折不挠，终成帝业。刘备也称自己做事“每与操反，事乃成尔”。', '章武三年（223年），刘备病逝于白帝城，终年六十三岁，谥号昭烈皇帝，庙号烈祖 [1]  ，葬惠陵。后世有众多文艺作品以其为主角，在成都武侯祠有昭烈庙为纪念。 [2-3] ', '2000', '41504676', '41504678', '3', null, null);
-INSERT INTO `information` VALUES ('18', '刘备的一生', '41504675', '刘备', '18-12', '国家级', '刘备少年时拜卢植为师；早年颠沛流离，备尝艰辛，投靠过多个诸侯，曾参与镇压黄巾起义。先后率军救援北海相孔融、徐州牧陶谦等。陶谦病亡后，将徐州让与刘备。赤壁之战时，刘备与孙权联盟击败曹操，趁势夺取荆州。而后进取益州。于章武元年（221年）在成都称帝，国号汉，史称蜀或蜀汉。《三国志》评刘备的机权干略不及曹操，但其弘毅宽厚，知人待士，百折不挠，终成帝业。刘备也称自己做事“每与操反，事乃成尔”。', '章武三年（223年），刘备病逝于白帝城，终年六十三岁，谥号昭烈皇帝，庙号烈祖 [1]  ，葬惠陵。后世有众多文艺作品以其为主角，在成都武侯祠有昭烈庙为纪念。 [2-3] ', '2000', '41504676', '41504678', '1', '刘备的一生中期审查.pdf', null);
+INSERT INTO `information` VALUES ('1', '深度学习', '41504675', '殷绪成', '2018-02-03', '校级', '深度学习的概念源于人工神经网络的研究。含多隐层的多层感知器就是一种深度学习结构。', '深度学习通过组合低层特征形成更加抽象的高层表示属性类别或特征', '3000', '41504676', '41504677', '0', '三国历史中期审查.pdf', '这会肯定对了！.docx');
+INSERT INTO `information` VALUES ('2', '模式识别', '41504676', '殷绪成', '2018-03-15', '院级', '模式识别（英语：Pattern Recognition），就是通过计算机用数学技术方法来研究模式的自动处理和判读。', '模式识别作为人工智能的一个重要应用领域也得到了飞速发展。模式识别就是用计算机通过计算的方法根据样本的特征对样本进行分类。', '2000', '41504677', '41504678', '1', null, null);
+INSERT INTO `information` VALUES ('3', '人工智能', '41504677', '殷绪成', '2018-04-16', '市级', '人工智能（Artificial Intelligence），英文缩写为AI。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。', '人工智能实验室(AiLab)是人工智能领域的网上资讯门户,本站汇集了各类人工智能学科知识和学习资料,是各位人工智能爱好者学习和交流不可或缺的平台', '4000', '41504678', '41504679', '1', null, null);
+INSERT INTO `information` VALUES ('4', '计算机网络', '41504678', '殷绪成', '2018-04-12', '校级', '人工智能（Artificial Intelligence），英文缩写为AI。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。', '人工智能实验室(AiLab)是人工智能领域的网上资讯门户,本站汇集了各类人工智能学科知识和学习资料,是各位人工智能爱好者学习和交流不可或缺的平台', '3000', '41504675', '41504676', '1', null, null);
+INSERT INTO `information` VALUES ('5', '软件工程', '41504679', '啦啦啦啦', '2018-02-06', '国家级', '人工智能（Artificial Intelligence），英文缩写为AI。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。', '人工智能实验室(AiLab)是人工智能领域的网上资讯门户,本站汇集了各类人工智能学科知识和学习资料,是各位人工智能爱好者学习和交流不可或缺的平台', '5000', '41504676', '41504677', '0', null, null);
+INSERT INTO `information` VALUES ('6', '计算机体系结构', '41504677', '刘备', '2018-06-01', '国家级', '真没什么背景', '能有啥成果', '10000', '41504675', '41504676', '1', null, null);
+INSERT INTO `information` VALUES ('7', '编译原理', '41504679', '张飞', '2018-07-01', '校级', '张飞能有啥背景', '我也想要成果呀', '5000', '41504675', '41504678', '1', null, null);
+INSERT INTO `information` VALUES ('8', '数据结构', '41504678', '关羽', '2018-03-05', '市级', '我真的编不出来背景了...', '好了无所谓了', '100', '41504675', '41504676', '1', null, null);
+INSERT INTO `information` VALUES ('9', '数据结构', '41504678', '关羽', '2018-03-15', '市级', '我真的编不出来背景了...', '好了无所谓了', '100', '41504675', '41504676', '1', null, null);
+INSERT INTO `information` VALUES ('10', '数值计算方法', '41504679', '张飞', '2018-07-03', '校级', '张飞能有啥背景', '我也想要成果呀', '5000', '41504675', '41504678', '1', null, null);
+INSERT INTO `information` VALUES ('11', '通信原理概论', '41504679', '张飞', '2018-07-02', '校级', '张飞能有啥背景', '我也想要成果呀', '5000', '41504675', '41504678', '1', null, null);
+INSERT INTO `information` VALUES ('12', '三国历史', '41504675', '曹操', '2018-12-03', '国家级', '123', '123', '3000', '41504678', '41504679', '2', '三国历史中期审查.pdf', null);
+INSERT INTO `information` VALUES ('13', '三国历史', '41504675', '孙权', '2018-12-03', '国家级', '123', '123', '3000', '41504678', '41504679', '3', null, null);
+INSERT INTO `information` VALUES ('17', '刘备的一生', '41504675', '刘备', '2018-12-05', '国家级', '刘备少年时拜卢植为师；早年颠沛流离，备尝艰辛，投靠过多个诸侯，曾参与镇压黄巾起义。先后率军救援北海相孔融、徐州牧陶谦等。陶谦病亡后，将徐州让与刘备。赤壁之战时，刘备与孙权联盟击败曹操，趁势夺取荆州。而后进取益州。于章武元年（221年）在成都称帝，国号汉，史称蜀或蜀汉。《三国志》评刘备的机权干略不及曹操，但其弘毅宽厚，知人待士，百折不挠，终成帝业。刘备也称自己做事“每与操反，事乃成尔”。', '章武三年（223年），刘备病逝于白帝城，终年六十三岁，谥号昭烈皇帝，庙号烈祖 [1]  ，葬惠陵。后世有众多文艺作品以其为主角，在成都武侯祠有昭烈庙为纪念。 [2-3] ', '2000', '41504676', '41504678', '3', null, null);
+INSERT INTO `information` VALUES ('18', '刘备的一生', '41504675', '刘备', '2018-12-28', '国家级', '刘备少年时拜卢植为师；早年颠沛流离，备尝艰辛，投靠过多个诸侯，曾参与镇压黄巾起义。先后率军救援北海相孔融、徐州牧陶谦等。陶谦病亡后，将徐州让与刘备。赤壁之战时，刘备与孙权联盟击败曹操，趁势夺取荆州。而后进取益州。于章武元年（221年）在成都称帝，国号汉，史称蜀或蜀汉。《三国志》评刘备的机权干略不及曹操，但其弘毅宽厚，知人待士，百折不挠，终成帝业。刘备也称自己做事“每与操反，事乃成尔”。', '章武三年（223年），刘备病逝于白帝城，终年六十三岁，谥号昭烈皇帝，庙号烈祖 [1]  ，葬惠陵。后世有众多文艺作品以其为主角，在成都武侯祠有昭烈庙为纪念。 [2-3] ', '2000', '41504676', '41504678', '1', '刘备的一生中期审查.pdf', null);
+INSERT INTO `information` VALUES ('19', '深入学习软件工程', '41524157', '殷绪成', '2018-02-02', '院级', '深入学习软件工程', '深入学习软件工程', '3000', '41504675', '41524136', '1', null, null);
+INSERT INTO `information` VALUES ('20', '深入学习人工智能', '41524157', '殷绪成', '2018-02-02', '院级', '深入学习人工智能', '深入学习人工智能', '3000', '41504675', '41524136', '0', null, null);
 
 -- ----------------------------
 -- Table structure for `password`
@@ -144,12 +200,13 @@ CREATE TABLE `srtp_tea` (
   `teacher_telnum` text,
   `teacher_email` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of srtp_tea
 -- ----------------------------
 INSERT INTO `srtp_tea` VALUES ('1', '我发布了一个项目', '张三', 'SRTP项目', '计算机、信安', '18810522313', '123@123.com');
+INSERT INTO `srtp_tea` VALUES ('2', '深入学习软件工程', '殷绪成', '深入学习软件工程', '计算机', '18811112222', '159@123.com');
 
 -- ----------------------------
 -- Table structure for `student`
@@ -167,10 +224,10 @@ CREATE TABLE `student` (
 -- Records of student
 -- ----------------------------
 INSERT INTO `student` VALUES ('41504675', '宋建成', '计通', '计1502');
-INSERT INTO `student` VALUES ('41504676', '李哲', '文法', '法学1502');
-INSERT INTO `student` VALUES ('41504677', '何宇晖', '经管', '经济1501');
-INSERT INTO `student` VALUES ('41504678', '白泽琛', '机械', '机械1503');
 INSERT INTO `student` VALUES ('41504679', '刘志', '冶金', '冶金1504');
+INSERT INTO `student` VALUES ('41524133', '何宇晖', '经管', '经济1501');
+INSERT INTO `student` VALUES ('41524136', '白泽琛', '机械', '机械1503');
+INSERT INTO `student` VALUES ('41524146', '李哲', '文法', '法学1502');
 INSERT INTO `student` VALUES ('41524157', '赵宇', '计通', '计1502');
 
 -- ----------------------------
@@ -275,7 +332,7 @@ CREATE TABLE `textbook` (
   `status` varchar(10) DEFAULT '0',
   `final_file` text,
   PRIMARY KEY (`textbook_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of textbook
@@ -285,6 +342,7 @@ INSERT INTO `textbook` VALUES ('2', 'Mysql从删库到跑路', '2018-06-06', 't0
 INSERT INTO `textbook` VALUES ('3', '通信原理（第7版）', '2018-06-06', 't0004', '新编', '50000', '通信原理概论', '1000', 't0002', 't0003', '能有啥大纲？', '东汉末年，天下大乱，曹操以汉天子的名义征讨四方，对内消灭二袁、吕布、刘表、马超、韩遂等割据势力，对外降服南匈奴、乌桓、鲜卑等，统一了中国北方，并实行一系列政策恢复经济生产和社会秩序，扩大屯田、兴修水利、奖励农桑、重视手工业、安置流亡人口、实行“租调制”，从而使中原社会渐趋稳定、经济出现转机。 [3]  黄河流域在曹操统治下，政治渐见清明，经济逐步恢复，阶级压迫稍有减轻，社会风气有所好转。曹操在汉朝的名义下所采取的一些措施具有积极作用。', null, null, '2', null);
 INSERT INTO `textbook` VALUES ('8', '离散数学', '2018-06-11', 't0001', '新编', '30000', '离散数学', '2000', 't0002', 't0003', '数学基础', '离散数学是研究离散量的结构及其相互关系的数学学科，是现代数学的一个重要分支。离散的含义是指不同的连接在一起的元素，主要是研究基于离散量的结构和相互间的关系，其对象一般是有限个或可数个元素。离散数学在各学科领域，特别在计算机科学与技术领域有着广泛的应用，同时离散数学也是计算机专业的许多专业课程，如程序设计语言、数据结构、操作系统、编译技术、人工智能、数据库、算法设计与分析、理论计算机科学基础等必不可少的先行课程。通过离散数学的学习，不但可以掌握处理离散结构的描述工具和方法，为后续课程的学习创造条件，而且可以提高抽象思维和严格的逻辑推理能力，为将来参与创新性的研究和开发工作打下坚实的基础。', null, '离散数学教材.docx', '3', '离散数学最终审批.docx');
 INSERT INTO `textbook` VALUES ('9', '软件工程', '2018-06-06', 't0002', '新编', '10000', '软件工程', '1000', 't0006', 't0005', '大纲就是大纲', '没啥目的', '啥目标都行', null, '3', null);
+INSERT INTO `textbook` VALUES ('10', '离散', '2018-06-17', 't0001', '教改', '30000', '离散数学', '200', 't0002', 't0003', '数学基础', '数学', null, null, '1', null);
 
 -- ----------------------------
 -- Table structure for `textbook_fund`
@@ -306,6 +364,43 @@ INSERT INTO `textbook_fund` VALUES ('2', '200', '200', '300');
 INSERT INTO `textbook_fund` VALUES ('3', '200', '4500', '6564');
 INSERT INTO `textbook_fund` VALUES ('5', '100', '200', '300');
 INSERT INTO `textbook_fund` VALUES ('8', '100', '200', '300');
+
+-- ----------------------------
+-- Table structure for `time_table`
+-- ----------------------------
+DROP TABLE IF EXISTS `time_table`;
+CREATE TABLE `time_table` (
+  `course_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `course_name` varchar(40) DEFAULT NULL,
+  `teacher_name` varchar(20) NOT NULL,
+  `frequency` int(11) DEFAULT NULL,
+  `building` varchar(40) DEFAULT NULL,
+  `classes` varchar(40) DEFAULT NULL,
+  `section1` varchar(20) DEFAULT NULL,
+  `section2` varchar(20) DEFAULT NULL,
+  `section3` varchar(20) DEFAULT NULL,
+  `section4` varchar(20) DEFAULT NULL,
+  `section5` varchar(20) DEFAULT NULL,
+  `Monday` varchar(45) DEFAULT NULL,
+  `Tuesday` varchar(45) DEFAULT NULL,
+  `Wednesday` varchar(45) DEFAULT NULL,
+  `Thurday` varchar(45) DEFAULT NULL,
+  `Friday` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`course_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20179 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of time_table
+-- ----------------------------
+INSERT INTO `time_table` VALUES ('10045', '信号与系统', '陈媛', '1', '教学楼', '公选', '1', '1', '0', '1', '1', '0', '1', '0', '0', '1');
+INSERT INTO `time_table` VALUES ('10081', '软件工程', '孙昌爱', '3', '逸夫楼', '必修', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0');
+INSERT INTO `time_table` VALUES ('10083', '工科数学分析', '储继迅', '1', '逸夫楼', '必修', '1', '1', '0', '1', '0', '1', '0', '1', '1', '1');
+INSERT INTO `time_table` VALUES ('20000', '嵌入式', '何杰', '3', '机电楼', '专选', 'null', '1', '1', 'null', 'null', 'null', '1', '1', 'null', 'null');
+INSERT INTO `time_table` VALUES ('20015', '模式识别', '朱超', '2', '机电楼', '专选', '1', '1', '1', '1', '0', '1', '0', '0', '1', '0');
+INSERT INTO `time_table` VALUES ('20156', '编译原理', '班晓娟', '2', '机电楼', '必修', '0', '0', '1', '0', '1', '0', '1', '0', '0', '1');
+INSERT INTO `time_table` VALUES ('20176', '数据结构', '王成耀', '1', '机电楼', '实验', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1');
+INSERT INTO `time_table` VALUES ('20177', '人工智能', '王睿', '2', '教学楼', '专选', 'null', '1', 'null', '1', 'null', '1', 'null', 'null', 'null', '1');
+INSERT INTO `time_table` VALUES ('20178', '计算机体系结构', '王昭顺', '2', '机电楼', '必修', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1');
 
 -- ----------------------------
 -- Event structure for `插入记录`

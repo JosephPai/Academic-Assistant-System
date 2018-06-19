@@ -22,10 +22,7 @@
     })  
 });  
 </script>
-<script type="text/javascript" language="javascript">
-alert("您的密码输入错误，请重新输入");
-window.document.location.href="login.jsp";
-</script>
+
     <%
       request.setCharacterEncoding("utf-8");
       String account = request.getParameter("account");

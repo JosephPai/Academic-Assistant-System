@@ -32,28 +32,19 @@ margin-left:20px;
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#">首页</a></li>
-    <li><a href="#">设置学年</a></li>
+    <li><a href="#">自动排课</a></li>
     </ul>
     </div>
     <div class="formbody">
-    <div class="formtitle"><span>设置学年</span></div>
+    <div class="formtitle"><span>开始排课</span></div>
     <ul class="seachform">
     <li>
-    <label style="font-size: 20px;">请设置当前学年：</label>  
     <div class="vocation">
-    <form action="GYear.jsp" method="post" >
-    <select name="semester" class="select1">
-      <option value="2016-2017-01">2016-2017-01</option>
-      <option value="2016-2017-02">2016-2017-02</option>
-      <option value="2017-2018-01">2017-2018-01</option>
-      <option value="2017-2018-02">2017-2018-02</option>
-      <option value="2018-2019-01">2018-2019-01</option>
-      <option value="2018-2019-02">2018-2019-02</option>
-    </select>
+    <form action="Ccreating.jsp" method="post" >
     
     </div>
     </li>
-     <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确定"/></li>
+     <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="开始排课"/></li>
     </ul>
     </form>
     </div>

@@ -187,6 +187,8 @@ h2{font-weight:normal;}
 .forminfo li i{color:#7f7f7f; padding-left:20px; font-style:normal;}
 .forminfo li cite{display:block; padding-top:10px;}
 .dfinput{width:345px; height:32px; line-height:32px; border-top:solid 1px #a7b5bc; border-left:solid 1px #a7b5bc; border-right:solid 1px #ced9df; border-bottom:solid 1px #ced9df; background:url(../images/inputbg.gif) repeat-x; text-indent:10px;}
+.dfinput1{width:34px; height:16px; line-height:16px; border-top:solid 1px #a7b5bc; border-left:solid 1px #a7b5bc; border-right:solid 1px #ced9df; border-bottom:solid 1px #ced9df;}
+
 .textinput{border-top:solid 1px #a7b5bc; border-left:solid 1px #a7b5bc; border-right:solid 1px #ced9df; border-bottom:solid 1px #ced9df; background:url(../images/inputbg.gif) repeat-x; padding:10px; width:504px; height:135px; line-height:20px; overflow:hidden;}
 .btn{width:137px;height:35px; background:url(../images/btnbg.png) no-repeat; font-size:14px;font-weight:bold;color:#fff; cursor:pointer;}
 
@@ -307,3 +309,4 @@ td {border:1px #CCCCCC solid; text-align:center; width:100px; height:30px;line-h
 	width:70px;
 	line-height:27px;
 	margin-right:20px;}
+.main td{ height:30px; width:100px;border:#CCCCCC 1px solid;}

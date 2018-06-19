@@ -22,5 +22,5 @@
     MyBean.executeUpdate(sql);
   %>
   <p style="font-size:20px;margin-left:20px;margin-top:20px">申请成功！<p>
-  <a style="display:block;font-size:20px;margin-left:20px;margin-top:20px" href="TCreat.jsp">返回</a>
+  <a style="display:block;font-size:20px;margin-left:20px;margin-top:20px" href="TApply.jsp">返回</a>
   

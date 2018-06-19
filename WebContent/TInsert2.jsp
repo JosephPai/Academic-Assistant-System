@@ -23,8 +23,7 @@
     String method = request.getParameter("method"); 
     String sql = "INSERT INTO teachreserch (teachReserch_name, first_id,apply_time,guide_id, type, ifNfinish, fund,paper, partner_one, partner_two,partner_three, background, bascis,goal,content,method) "
     		+"VALUES (\'"+teachReserch_name+"\', \'"+first_id+"\', \'"+apply_time+"\', \'"+ guide_id+"\', \'"+ type+"\', \'"+ ifNfinish+"\', \'"+  fund+"\', \'" +  paper+"\', \'" + partner_one+"\', \'"+ partner_two+"\', \'"+ partner_three+"\', \'"+background+"\', \'"+  bascis+"\', \'"+  goal+"\', \'"+  content+"\', \'"+method+"')";
-    MyBean.executeUpdate(sql);
-  %>
+    MyBean.executeUpdate(sql);  %>
   <p style="font-size:20px;margin-left:20px;margin-top:20px">申请成功！<p>
-  <a style="display:block;font-size:20px;margin-left:20px;margin-top:20px" href="TCreat.jsp">返回</a>
+  <a style="display:block;font-size:20px;margin-left:20px;margin-top:20px" href="TApply.jsp">返回</a>
   

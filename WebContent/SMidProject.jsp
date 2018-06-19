@@ -66,33 +66,7 @@ $(document).ready(function(e) {
   	<div id="tab1" class="tabson">
     
     
-    <ul class="seachform">
-    
-    
-    <li><label>学院</label>  
-    <div class="vocation">
-    <select class="select3">
-    <option>文法学院</option>
-    <option>计通学院</option>
-    </select>
-    </div>
-    </li>
-    
-    <li><label>专业</label>  
-    <div class="vocation">
-    <select class="select3" style="width:200px;">
-    <option>计算机</option>
-    <option>法学</option>
-    </select>
-    </div>
-    </li>
-    
-    <li><label>学号</label><input name="" type="text" class="scinput" /></li>
-    
-    
-    <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询"/></li>
-    
-    </ul>
+
     
     
     <table class="tablelist">

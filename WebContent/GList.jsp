@@ -80,10 +80,12 @@ $(document).ready(function(e) {
         </thead>
         <tbody>
         <%
-        String semester = request.getParameter("semester");
-        log(semester);
+        
+        
+        
+        String semester1 = session.getAttribute("semester1").toString();
         //查看所有待立项的项目并输出
-        String sql = "SELECT g.id,g.pro,s.name,g.teacher FROM ggg AS g INNER JOIN student AS s WHERE g.stuid = s.id AND g.semester = "+"\'"+semester+"\'";
+        String sql = "SELECT g.id,g.pro,s.name,g.teacher FROM ggg AS g INNER JOIN student AS s WHERE g.stuid = s.id AND g.semester = "+"\'"+semester1+"\'";
         ResultSet rs = MyBean.executeQuery(sql);
         log(sql);
         while(rs.next()){

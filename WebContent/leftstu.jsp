@@ -51,12 +51,15 @@ $(function(){
     ResultSet rs2 = MyBean.executeQuery(sql2);
     String id2 = null;
     while(rs2.next()){
-    id2 = rs2.getString(1);}
+    id2 = rs2.getString(1);
+    }
+    session.setAttribute("srtpid", id2);
     %>
     <ul class="menuson">
         <li><cite></cite><a href="SNewProject.jsp" target="rightFrame">填写申请</a><i></i></li>
+        <li><cite></cite><a href="SApplyFund.jsp" target="rightFrame">经费信息</a><i></i></li>
         <li><cite></cite><a href="SList.jsp" target="rightFrame">项目列表</a><i></i></li>
-        <li><cite></cite><a href="DetailedInformation4.jsp?id=<%=id2%>" target="rightFrame">查看项目信息</a><i></i></li>
+        <li><cite></cite><a href="SDetailedstu.jsp?id=<%=id2%>" target="rightFrame">查看项目信息</a><i></i></li>
         
         </ul>     
     </dd>         

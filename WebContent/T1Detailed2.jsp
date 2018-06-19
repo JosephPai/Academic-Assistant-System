@@ -74,11 +74,11 @@
 	  out.println("</tr>");
 	  out.println("<tr>");
 	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>项目目的</td>");
-	  out.println("<td colspan = '5' align='left'>"+rs.getString(7)+"</td>");
+	  out.println("<td colspan = '5' align='left'>"+rs.getString(9)+"</td>");
 	  out.println("</tr>");
 	  out.println("<tr>");
 	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>项目成果</td>");
-	  out.println("<td colspan = '6' align='left'>"+rs.getString(8)+"</td>");
+	  out.println("<td colspan = '6' align='left'>"+rs.getString(10)+"</td>");
 	  out.println("</tr>");
 	  
 	  sturs.next();

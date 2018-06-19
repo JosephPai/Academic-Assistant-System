@@ -32,12 +32,7 @@
 
 
 <div class="logintop">    
-    <span>欢迎登录本科教学秘书辅助系统</span>    
-    <ul>
-    <li><a href="#">回首页</a></li>
-    <li><a href="#">帮助</a></li>
-    <li><a href="#">关于</a></li>
-    </ul>    
+    <span>欢迎登录本科教学秘书辅助系统</span>      
     </div>
     
     <div class="loginbody">

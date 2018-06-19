@@ -17,8 +17,8 @@
     String partner_two = request.getParameter("partner_two");  
     String purpose = request.getParameter("purpose"); 
     String goal = request.getParameter("goal"); 
-    String sql = "INSERT INTO textbook (textbook_name, apply_time, first_author_id, type, word, course, fund, partner_one, partner_two, outline, purpose) "
-    		+"VALUES (\'"+textbook_name+"\', \'"+apply_time+"\', \'"+first_author_id+"\', \'"+ type+"\', \'"+ word+"\', \'"+ course_name+"\', \'"+  fund+"\', \'"+ partner_one+"\', \'"+ partner_two+"\', \'"+ outline+"\', \'"+purpose+"')";
+    String sql = "INSERT INTO textbook (textbook_name, apply_time, first_author_id, type, word, course, fund, partner_one, partner_two, outline, purpose,goal) "
+    		+"VALUES (\'"+textbook_name+"\', \'"+apply_time+"\', \'"+first_author_id+"\', \'"+ type+"\', \'"+ word+"\', \'"+ course_name+"\', \'"+  fund+"\', \'"+ partner_one+"\', \'"+ partner_two+"\', \'"+ outline+"\', \'"+purpose+"\', \'"+goal+"')";
     MyBean.executeUpdate(sql);
   %>
   <p style="font-size:20px;margin-left:20px;margin-top:20px">申请成功！<p>

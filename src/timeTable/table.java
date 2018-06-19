@@ -65,7 +65,7 @@ public class table {
 		int day, time;
 		day = r.nextInt(5);
 		time = r.nextInt(5);
-		if (rs.getString(day+11).equals("1") && rs.getString(time+6).equals("1") && week[day][time]==null){
+		if (rs.getString(day+12).equals("1") && rs.getString(time+7).equals("1") && week[day][time]==null){
 			week[day][time] = rs.getString(3) + " " + rs.getString(2) + " "+rs.getString("building") + " "+rs.getString("classes");
 			System.out.println(week[day][time]);
 			return 1;

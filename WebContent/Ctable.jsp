@@ -32,6 +32,7 @@
     </div>
  <div class="formbody">
     <div class="formtitle"><span>查看当前课表</span></div>
+    <div class="mid" style="margin:auto;">
     <ul class="seachform">
     <li>
     
@@ -77,7 +78,7 @@
 	</li>
 	  
     </ul>
-
+    </div>
 
 </body>
 </html>

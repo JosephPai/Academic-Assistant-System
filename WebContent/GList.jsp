@@ -102,7 +102,7 @@ $(document).ready(function(e) {
         	out.println(sss);
         	out.println("</tr>");
         }
-        rs.close();
+       // rs.close();
         %>
         </tbody>
     </table>

@@ -58,3 +58,7 @@
     	  }
       }
     %>
+<script type="text/javascript" language="javascript">
+alert("密码错误！");
+window.document.location.href="login.jsp";
+</script>

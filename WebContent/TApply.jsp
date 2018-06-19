@@ -74,7 +74,7 @@ $(document).ready(function(e) {
     <li><label>参编一编号</label><input name="partner_one" type="text" class="dfinput" /><i></i></li>
     <li><label>参编二编号</label><input name="partner_two" type="text" class="dfinput" /><i></i></li>  
     <li><label>编写目的</label><textarea name="purpose" cols="" rows="" class="textinput"></textarea></li>
-    <li><label>编写目标</label><textarea name="goal" cols="" rows="" class="textinput"></textarea></li>
+    <li><label>编写成果</label><textarea name="goal" cols="" rows="" class="textinput"></textarea></li>
     <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认提交"/></li>
     </ul>
     </form>

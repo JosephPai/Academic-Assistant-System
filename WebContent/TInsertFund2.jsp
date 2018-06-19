@@ -16,7 +16,7 @@
     String sql2 = "SELECT teachReserch_id FROM teachreserch WHERE first_id = \'"+ teaid+"\'";
     ResultSet rs2 = MyBean.executeQuery(sql2);
     rs2.next();
-    String id2 = rs1.getString(1);
+    String id2 = rs2.getString(1);
     String office_supply = request.getParameter("office_supply");
     String data_fee = request.getParameter("data_fee");
     String travel_expenses = request.getParameter("travel_expenses");

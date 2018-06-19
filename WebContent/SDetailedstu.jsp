@@ -26,29 +26,26 @@
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#">首页</a></li>
-    <li><a href="#">待立项审批项目</a></li>
+    <li><a href="#">已结束审批项目</a></li>
     <li><a href="#">查看详细信息</a></li>
     </ul>
     </div>
-    
  <div class="formbody">
     <div class="formtitle"><span>查看详细信息</span></div>
-    
     <ul class="seachform">
-    <li>
-      <%
+    <%
       String id=request.getParameter("id");
-	  log("本页IdWEI "+id);
+	  log(id);
 	  if(id.equals("null")) {
-		  out.println("暂无项目！");
+		  out.println("暂无SRTP项目！");
 		  return;
 	  }
-    %>
-	  <table border=1>
-	  <%
+      %>
+    <li>
+    <%
 	  
 	  //取出项目详细信息
-	  String sqlsta = "select status from textbook where textbook_id = "+id;
+	  String sqlsta = "select status from information where id = "+id;
 	  ResultSet rssta = MyBean.executeQuery(sqlsta);
 	  rssta.next();
 	  String status = rssta.getString(1);
@@ -58,91 +55,92 @@
 	  else if(status.equals("2")) sta = "待最终审批";
 	  else if(status.equals("3")) sta = "已结项";
 	  %>
-	  <caption class="table_title">教材详细信息(<%=sta %>)</caption>
+	  <table border=1>
+	  <caption class="table_title">SRTP项目详细信息(<%=sta %>)</caption>
 	  <%
 	  
 	  //取出项目详细信息
-	  String sql = "select textbook_name,first_author_id,apply_time,type,word,course,fund,outline,purpose,goal from textbook where textbook_id = "+id;
+	  String sql = "SELECT i.id,i.srtp_name,s.name,i.teacher_name,i.level,i.budget,i.background, i.result FROM information AS i INNER JOIN student AS s WHERE i.leader_id = s.id AND i.id ="+id;
 	  ResultSet rs = MyBean.executeQuery(sql);
 	  
 	  //取出队员信息
-	  String stusql = "SELECT teacher.teacher_id,teacher.teacher_name,teacher.department,teacher.job AS teacherpartner FROM textbook JOIN teacher ON teacher.teacher_id = textbook.first_author_id OR teacher.teacher_id = textbook.partner_one OR teacher.teacher_id = textbook.partner_two WHERE textbook.textbook_id ="+id;
+	  String stusql = "SELECT student.id,student.name,student.institute,student.class, information.id as srtpid FROM student JOIN information "
+			  +"ON (student.id=information.leader_id OR student.id=information.member_id1 OR student.id=information.member_id2)"
+			  +"WHERE information.id="+id;
 	  ResultSet sturs = MyBean.executeQuery(stusql);
 	  rs.next();
 	  out.println("<tr>");
-	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>项目ID</td>");
-	  out.println("<td>"+id+"</td>");
-	  out.println("<td bgcolor=#f0f0f0 align='center'>项目名称</td>");
+	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>id</td>");
 	  out.println("<td>"+rs.getString(1)+"</td>");
-	  out.println("<td bgcolor=#f0f0f0 align='center' nowrap='nowrap'>第一作者工号</td>");
+	  String srtpid = rs.getString(1);
+	  out.println("<td bgcolor=#f0f0f0 align='center'>项目名称</td>");
 	  out.println("<td>"+rs.getString(2)+"</td>");
-	  out.println("</tr>");
-	  out.println("<tr>");
-	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>申请时间</td>");
+	  out.println("<td bgcolor=#f0f0f0 align='center' nowrap='nowrap'>负责学生姓名</td>");
 	  out.println("<td>"+rs.getString(3)+"</td>");
-	  out.println("<td bgcolor=#f0f0f0 align='center'>类型</td>");
+	  out.println("</tr>");
+	  out.println("<tr>");
+	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>指导教师姓名</td>");
 	  out.println("<td>"+rs.getString(4)+"</td>");
-	  out.println("<td bgcolor=#f0f0f0 align='center' nowrap='nowrap'>字数</td>");
+	  out.println("<td bgcolor=#f0f0f0 align='center'>项目级别</td>");
 	  out.println("<td>"+rs.getString(5)+"</td>");
-	  out.println("</tr>");
-	  out.println("<tr>");
-	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>适用课程</td>");
+	  out.println("<td bgcolor=#f0f0f0 align='center' nowrap='nowrap'>项目经费</td>");
 	  out.println("<td>"+rs.getString(6)+"</td>");
-	  out.println("<td bgcolor=#f0f0f0 align='center'>预计经费</td>");
-	  out.println("<td>"+rs.getString(7)+"</td>");
-	  out.println("<td bgcolor=#f0f0f0 align='center' nowrap='nowrap'>项目大纲</td>");
-	  out.println("<td>"+rs.getString(8)+"</td>");
 	  out.println("</tr>");
 	  out.println("<tr>");
-	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>项目目的</td>");
-	  out.println("<td colspan = '5' align='left'>"+rs.getString(9)+"</td>");
+	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>项目背景</td>");
+	  out.println("<td colspan = '5' align='left'>"+rs.getString(7)+"</td>");
 	  out.println("</tr>");
 	  out.println("<tr>");
 	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>项目成果</td>");
-	  out.println("<td colspan = '6' align='left'>"+rs.getString(10)+"</td>");
+	  out.println("<td colspan = '6' align='left'>"+rs.getString(8)+"</td>");
 	  out.println("</tr>");
-	  
 	  sturs.next();
 	  out.println("<tr>");
-	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>负责人</td>");
+	  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>队长</td>");
 	  out.println("<td>"+sturs.getString(2)+"</td>");
-	  out.println("<td bgcolor=#f0f0f0 align='center'>院系</td>");
-	  out.println("<td>"+sturs.getString(3)+"</td>");
-      out.println("<td bgcolor=#f0f0f0 align='center' nowrap='nowrap'>职称</td>");
+	  out.println("<td bgcolor=#f0f0f0 align='center'>学号</td>");
+	  out.println("<td>"+sturs.getString(1)+"</td>");
+      out.println("<td bgcolor=#f0f0f0 align='center' nowrap='nowrap'>班级</td>");
 	  out.println("<td>"+sturs.getString(4)+"</td>");
 	  while(sturs.next())
 	  {
 		  out.println("<tr>");
-		  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>参与人</td>");
+		  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>队员</td>");
 		  out.println("<td>"+sturs.getString(2)+"</td>");
-		  out.println("<td bgcolor=#f0f0f0 align='center'>院系</td>");
-		  out.println("<td>"+sturs.getString(3)+"</td>");
-	      out.println("<td bgcolor=#f0f0f0 align='center' nowrap='nowrap'>职称</td>");
+		  out.println("<td bgcolor=#f0f0f0 align='center'>学号</td>");
+		  out.println("<td>"+sturs.getString(1)+"</td>");
+	      out.println("<td bgcolor=#f0f0f0 align='center' nowrap='nowrap'>班级</td>");
 		  out.println("<td>"+sturs.getString(4)+"</td>");
 	  }
 	  rs.close();
 	  sturs.close();
-	  String funsql = "SELECT * FROM textbook_fund WHERE fund_id = "+id;
+	  String funsql = "SELECT outlay, time, money, invoice FROM funds WHERE srtpid = "+id;
 	  ResultSet funrs = MyBean.executeQuery(funsql);
 	  out.println("<tr>");
 	  out.println("<td colspan = '6' align='center' bgcolor=#f0f0f0> 经费信息 </td>");
 	  while(funrs.next())
 	  {
 		  out.println("<tr>");
-		  out.println("<td bgcolor=#f0f0f0 align='center'>办公用品费</td>");
-		  out.println("<td  nowrap='nowrap'>"+funrs.getString(2)+"</td>");
-		  out.println("<td bgcolor=#f0f0f0 align='center'>资料费</td>");
-		  out.println("<td >"+funrs.getString(3)+"</td>");
-		  out.println("<td bgcolor=#f0f0f0 align='center'>差旅费</td>");
-		  out.println("<td >"+funrs.getString(4)+"</td>");
+		  out.println("<td bgcolor=#f0f0f0 nowrap='nowrap'>"+funrs.getString(1)+"</td>");
+		  out.println("<td  align='center'>花费金额</td>");
+		  out.println("<td bgcolor=#f0f0f0>"+funrs.getString(3)+"</td>");
+		  out.println("<td align='center'>花费时间</td>");
+		  out.println("<td bgcolor=#f0f0f0>"+funrs.getString(2)+"</td>");
+		  String funbool = funrs.getString(4);
+		  if(funbool.equals("1")) funbool="有发票";
+		  else funbool="无发票";
+		  out.println("<td>"+funbool+"</td>");
 	  }
 	  funrs.close();
-	  
 	  %>
-      <form action="upload3" method="post" enctype="multipart/form-data">
+	 
+	 <form action="upload" method="post" enctype="multipart/form-data">
         <tr>
            <td colspan = '6' align='center' bgcolor=#f0f0f0> 中期审查文件 </td>   
         </tr>
+     </form>
+     <tr>
+     <form action="upload" method="post" enctype="multipart/form-data">
         <tr>
             <td colspan = '1'>文件描述:</td>
             <td colspan = '3'><input type="text" name="desc"/></td>
@@ -155,19 +153,25 @@
             <td colspan = '1'><input  type="submit" value="上传文件"/></td>
         </tr>
      </form>
-     <tr>
      <% 
-     String filesql = "SELECT mid_file FROM textbook WHERE textbook_id ="+id;
+     String filesql = "SELECT mid_file FROM information WHERE id ="+id;
      ResultSet filers = MyBean.executeQuery(filesql);
      if(filers.next()){
      out.println("<td colspan = '6'><a href=DownloadServlet?filename="+filers.getString(1)+">"+filers.getString(1)+"</a></td>");}
      filers.close();
      %>
-	  </tr>
-     	 <form action="upload4" method="post" enctype="multipart/form-data">
+     
+     
+     
+
+     </tr>
+     	 <form action="upload2" method="post" enctype="multipart/form-data">
         <tr>
            <td colspan = '6' align='center' bgcolor=#f0f0f0> 最终审核文件 </td>   
         </tr>
+        </form>
+     <tr>
+     <form action="upload2" method="post" enctype="multipart/form-data">
         <tr>
             <td colspan = '1'>文件描述:</td>
             <td colspan = '3'><input type="text" name="desc"/></td>
@@ -180,22 +184,20 @@
             <td colspan = '1'><input  type="submit" value="上传文件"/></td>
         </tr>
      </form>
-     <tr>
      <% 
-     String finalfilesql = "SELECT final_file FROM textbook WHERE textbook_id ="+id;
+     String finalfilesql = "SELECT final_file FROM information WHERE id ="+id;
      ResultSet finalfilers = MyBean.executeQuery(finalfilesql);
      if(finalfilers.next()){
      out.println("<td colspan = '6'><a href=DownloadServlet?filename="+finalfilers.getString(1)+">"+finalfilers.getString(1)+"</a></td>");}
      finalfilers.close();
      %>
-     </tr>  
-	  
-	    
+     </tr>
 	  </table>
 	</li>
 	  
     </ul>
-
+    <br>
+  </div>
 
 
 </body>
